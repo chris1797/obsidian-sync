@@ -1,0 +1,37 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "path:JPA  ",
+      "color": {
+        "a": 1,
+        "rgb": 14672193
+      }
+    },
+    {
+      "query": "path:SpringSecurity  ",
+      "color": {
+        "a": 1,
+        "rgb": 3405081
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 2.49197998046875,
+  "lineSizeMultiplier": 2.65248209635417,
+  "collapse-forces": false,
+  "centerStrength": 0.2896728515625,
+  "repelStrength": 11.53076171875,
+  "linkStrength": 1,
+  "linkDistance": 210,
+  "scale": 2.3071551070306238,
+  "close": true
+}
