@@ -13,11 +13,11 @@
             "state": {
               "type": "bases",
               "state": {
-                "file": "무제.base",
+                "file": "0. Index.base",
                 "viewName": "표"
               },
               "icon": "lucide-table",
-              "title": "무제"
+              "title": "0. Index"
             }
           }
         ]
@@ -162,7 +162,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -178,19 +179,26 @@
   },
   "active": "0ecb1d07723633e9",
   "lastOpenFiles": [
+    "CLAUDE.md",
+    "무제.canvas",
+    "무제 1.canvas",
+    "SQL 튜닝/소트 머지 조인.md",
+    "SQL 튜닝/SGA.md",
+    "SQL 튜닝/PGA.md",
+    "SQL 튜닝/SGA.md.tmp.4548.1777423289049",
+    "0. Index.base",
+    "CLAUDE.md.tmp.4548.1777423230526",
+    "CLAUDE.md.tmp.4548.1777422767980",
+    "복합키로 PK 를 설정할 시 불리함들.md",
+    "Memo.md",
     "SpringSecurity/로그인.md",
     "SpringSecurity/SpringSecurity.md",
     "SpringSecurity/Authorization.md",
     "SpringSecurity/Authentication.md",
     "SpringSecurity",
-    "SQL 튜닝/소트 머지 조인.md",
-    "SQL 튜닝/PGA.md",
     "SQL 튜닝",
     "JPA/N+1 문제.md",
     "JPA/Lazy + fetch join.md",
-    "JPA",
-    "복합키로 PK 를 설정할 시 불리함들.md",
-    "무제.base",
-    "Memo.md"
+    "JPA"
   ]
 }
