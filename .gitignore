@@ -3,3 +3,6 @@
 # Obsidian: per-device UI state (auto-updated on every focus/close)
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+
+# obsidian-git plugin: transient conflict marker file
+conflict-files-obsidian-git.md
