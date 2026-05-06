@@ -1,1 +1,5 @@
 .DS_Store
+
+# Obsidian: per-device UI state (auto-updated on every focus/close)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
