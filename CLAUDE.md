@@ -73,3 +73,55 @@
 
 - `0. Index.base` — Obsidian Bases(쿼리/뷰) 파일. 일반 마크다운 편집기로 손대지 말 것.
 - `.obsidian/` — Obsidian 설정 디렉토리. 사용자가 명시적으로 요청할 때만 수정.
+
+## Git 동기화
+
+이 볼트는 **여러 기기에서 Obsidian Git 플러그인으로 자동 backup/sync**하는 환경이다. 플러그인의 흐름은 `stage → commit → pull → push`이고, pull 단계에서 충돌이 나면 멈춘다. 사용자가 "commit sync가 안 된다"고 할 때 가장 자주 마주칠 패턴이 정해져 있으니 다음 순서로 본다.
+
+### 진단 순서
+
+1. `git status` — `unmerged paths`가 있으면 **이전 backup이 pull 충돌로 멈춰 있는 상태**.
+2. 워킹 디렉토리에 `conflict-files-obsidian-git.md`가 있으면 그건 **플러그인이 사용자한테 충돌을 알리려 만든 임시 안내 파일**일 뿐이다. 내용 자체는 의미 없고, merge 끝나면 플러그인이 지운다.
+3. `git ls-files .obsidian/workspace.json` — 결과가 나오면 **그 파일이 인덱스에 살아 있다는 뜻**. `.gitignore`에 적혀 있어도 **이미 인덱스에 있는 파일은 ignore되지 않는다**. 이게 sync가 반복적으로 깨지는 가장 흔한 원인.
+
+### 가장 흔한 충돌 — `.obsidian/workspace.json`
+
+- Obsidian이 포커스/닫을 때마다 자동으로 고쳐 쓰는 per-device UI state 파일.
+- 어느 기기에서 한 번 `git rm --cached` + `.gitignore` 등록 했어도, **다른 기기들의 인덱스에는 여전히 살아 있다**. 그 기기들이 backup하면 다시 추적이 부활.
+- 증상: pull 시 `deleted by them` / `modify/delete` 충돌이 매번 같은 파일에서 발생.
+- 해결: 해당 기기에서 `git rm --cached .obsidian/workspace.json` → commit. 인덱스에서 빠지면 그때부터 `.gitignore`가 비로소 효력 발휘.
+
+### Device-local 파일 일반 원칙
+
+위 workspace.json과 **완전히 같은 패턴**의 파일이 더 있다. 공통점:
+
+- 도구가 **자동으로 자주 갱신**하는 파일 (사용자가 직접 편집하지 않음)
+- 내용이 **기기마다 의미가 다름** (다른 기기 상태를 받아도 무의미하거나 해로움)
+- 파일명에 `.local`, `workspace`, `cache` 같은 단서가 있는 경우가 많음
+
+현재 ignore + untrack 처리된 목록:
+
+- `.obsidian/workspace.json`, `.obsidian/workspace-mobile.json` — Obsidian UI 상태
+- `.claude/settings.local.json` — Claude Code 권한 설정 (`.local` 접미사 = 기기 전용 컨벤션)
+
+**다른 기기에서 처음 sync할 때 점검 명령** (한 줄):
+
+```sh
+git ls-files .obsidian/workspace.json .obsidian/workspace-mobile.json .claude/settings.local.json
+```
+
+결과로 나오는 파일이 있다면 그 기기 인덱스에 잔존 중이라는 뜻 → `git rm --cached <파일>` 후 commit/push 해야 그 기기도 sync 충돌에서 해방된다. 새로 device-local 파일을 발견하면 위 목록과 `.gitignore`에 같이 추가할 것.
+
+### 표준 복구 흐름
+
+1. `git merge --abort` (혹은 `git rebase --abort`) — 멈춰 있던 작업 취소.
+2. 원인 파일을 인덱스에서 제거: `git rm --cached <파일>`.
+3. `git pull --rebase origin main` — 원격 위에 로컬 backup commit을 다시 얹는다. backup commit이 오직 ignored 파일 변경뿐이면 rebase가 자동으로 empty 처리해 drop한다 (정상).
+4. 충돌이 또 나면 modify/delete 패턴인지 확인하고 삭제 방향으로 resolve (`git rm -f <파일>` → `git rebase --continue`).
+5. `git push`.
+
+### 주의
+
+- **git은 외부 영향이 큰 도구**다. abort·rm·rebase·push 같은 액션은 사용자에게 한 번 확인받고 진행한다. 진단(read-only)은 자유롭게 해도 됨.
+- backup commit이 사라져 보여도 당황하지 말 것. 같은 변경이 원격에 이미 들어와 있어 empty drop되는 경우가 많다. `git diff <dropped-sha> HEAD -- <파일들>`로 내용 동일성을 확인하면 손실 여부를 확정할 수 있다.
+- 같은 문제가 다른 기기에도 잠복해 있을 가능성이 크다. 한 기기를 고친 뒤에도 사용자에게 **다른 기기에서 `git ls-files .obsidian/workspace.json` 확인 + 동일 정리**를 권할 것.
