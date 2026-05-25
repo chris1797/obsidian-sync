@@ -6,3 +6,6 @@
 
 # obsidian-git plugin: transient conflict marker file
 conflict-files-obsidian-git.md
+
+# Claude Code: per-device permission state (auto-updated as permissions accumulate)
+.claude/settings.local.json
