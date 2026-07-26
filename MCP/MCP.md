@@ -88,4 +88,8 @@
 
 즉 SSE가 사라진 게 아니라 "상시 별도 채널"에서 "필요할 때만 켜는 옵션"으로 강등된 것. 실무 정리: **로컬=stdio, 원격=Streamable HTTP** (HTTP+SSE는 deprecated).
 
+## 관련 노트
+
+- [[FastMCP 대규모 도구의 토큰 절약]]
+
 > 상태: #wip — REST 대비 / 두 통로 / 전송 방식까지. 다음 가지: `resources`·`prompts`(툴 말고 다른 노출 방식), 인증/권한 상세, [[REST API]]와의 본격 대조.
