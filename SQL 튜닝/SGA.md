@@ -43,5 +43,5 @@ DB가 디스크 I/O를 줄이는 핵심 장치가 SGA다. 한 번 읽은 블록�
 
 - [[PGA]] — 세션 전용 메모리. SGA와 짝.
 - [[소트 머지 조인]] — 정렬은 PGA에서 일어나지만, 정렬 대상 블록을 읽어오는 단계는 SGA Buffer Cache를 거침.
-- 해시 조인 — 마찬가지로 Build/Probe 입력은 Buffer Cache에서.
+- [[해시 조인]] — 마찬가지로 Build/Probe 입력은 Buffer Cache에서.
 - 라이브러리 캐시 ↔ 바인드 변수·hard parse — 캐시 효율의 핵심.

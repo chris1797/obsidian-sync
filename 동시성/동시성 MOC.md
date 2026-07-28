@@ -11,4 +11,4 @@
 
 ## 다음 가지 후보
 
-`run_in_executor` / `run_in_threadpool`(동기 코드를 async로 끌어들이는 다리), `asyncio.gather` / TaskGroup(Task 예외가 silent해지는 함정), async generator(`async for`, 스트리밍), `multiprocessing` IPC 비용, Python 3.13 free-threaded 빌드가 refcount를 어떻게 푸는가.
+`run_in_executor` / `run_in_threadpool`(동기 코드를 async로 끌어들이는 다리), [[asyncio.gather]] / TaskGroup(Task 예외가 silent해지는 함정), async generator(`async for`, 스트리밍), `multiprocessing` IPC 비용, Python 3.13 free-threaded 빌드가 refcount를 어떻게 푸는가.
