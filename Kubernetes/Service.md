@@ -23,4 +23,4 @@
 
 Service의 고정 IP는 *추상*일 뿐, 실제 패킷은 아무도 안 듣는 가상 IP로 간다. "그 IP로 온 트래픽을 살아있는 Pod 중 하나로" 실제로 넘기는 건 각 노드의 **kube-proxy**가 iptables/IPVS 규칙으로 한다. [[Kubernetes]] 지도에서 kube-proxy를 "노드 네트워크 규칙 관리"라 했던 게 바로 이 일이다.
 
-> 상태: #wip — 발견·로드밸런싱의 큰 그림. 다음 가지: Ingress(L7 라우팅, 여러 Service를 도메인·경로로 묶기), headless Service, 클러스터 내부 DNS.
+> 상태: #wip — 발견·로드밸런싱의 큰 그림. 다음 가지: [[네트워크 경계 (ingress·egress·NAT)|Ingress]](L7 라우팅, 여러 Service를 도메인·경로로 묶기), headless Service, 클러스터 내부 DNS.

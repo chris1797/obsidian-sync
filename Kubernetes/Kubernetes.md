@@ -69,5 +69,6 @@ k8s에서 "무언가를 배포한다"는 건 결국 오브젝트(YAML)를 선언
 - [[Service]] — ClusterIP / NodePort / LoadBalancer의 차이와 kube-proxy
 - [[컨트롤 루프]] — reconciliation이 도는 실제 메커니즘 (watch, 레벨 기반)
 - [[컨트롤 플레인]] — etcd·API Server의 내부, 왜 모든 게 API Server를 통하는가
+- [[네트워크 경계 (ingress·egress·NAT)]] — 트래픽이 클러스터 경계를 넘을 때: inbound/egress, proxy, egress NAT IP
 
 > 상태: #wip — 지도만 잡은 단계. 가지 노트를 채우며 키운다.
