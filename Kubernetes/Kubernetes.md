@@ -72,3 +72,5 @@ k8s에서 "무언가를 배포한다"는 건 결국 오브젝트(YAML)를 선언
 - [[네트워크 경계 (ingress·egress·NAT)]] — 트래픽이 클러스터 경계를 넘을 때: inbound/egress, proxy, egress NAT IP
 
 > 상태: #wip — 지도만 잡은 단계. 가지 노트를 채우며 키운다.
+
+#k8s
