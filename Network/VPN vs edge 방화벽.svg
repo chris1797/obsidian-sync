@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif">
+  <!-- self-contained light panel: 어느 테마에서도 동일하게 보이도록 자체 배경 -->
+  <rect x="1" y="1" width="758" height="398" rx="16" fill="#f4f7fa" stroke="#d6dfe8" stroke-width="1.5"/>
+
+  <!-- title -->
+  <text x="34" y="40" font-size="18" font-weight="700" fill="#17212f">VPN은 '입장', edge 방화벽은 '내부 서비스 출입증'</text>
+  <text x="34" y="62" font-size="12.5" fill="#5a6b80">사내망에 <tspan font-weight="700" fill="#17212f">들어오는 것</tspan>과, 그 안 특정 서비스에 <tspan font-weight="700" fill="#cf3f27">닿는 것</tspan>은 다른 허가다.</text>
+
+  <!-- ===================== BEFORE ===================== -->
+  <rect x="34" y="86" width="118" height="20" rx="10" fill="#fbe9e5"/>
+  <text x="44" y="100" font-size="11" font-weight="700" fill="#cf3f27" letter-spacing="0.5">BEFORE · VPN만</text>
+
+  <!-- rails -->
+  <line x1="152" y1="150" x2="205" y2="150" stroke="#aab8c8" stroke-width="2"/>
+  <line x1="315" y1="150" x2="400" y2="150" stroke="#aab8c8" stroke-width="2"/>
+
+  <!-- nodes -->
+  <g>
+    <rect x="34" y="128" width="118" height="44" rx="9" fill="#ffffff" stroke="#c8d3de"/>
+    <text x="93" y="150" font-size="13.5" font-weight="650" fill="#17212f" text-anchor="middle">내 맥</text>
+    <text x="93" y="164" font-size="9" fill="#8593a6" text-anchor="middle" letter-spacing="1">CLIENT</text>
+  </g>
+  <g>
+    <rect x="205" y="128" width="110" height="44" rx="9" fill="#ffffff" stroke="#c8d3de"/>
+    <text x="260" y="149" font-size="13" font-weight="650" fill="#17212f" text-anchor="middle">사내망</text>
+    <text x="260" y="163" font-size="8.5" fill="#8593a6" text-anchor="middle" letter-spacing="0.5">VPN ZONE</text>
+  </g>
+  <g>
+    <rect x="400" y="128" width="118" height="44" rx="9" fill="#eef2f6" stroke="#c8d3de"/>
+    <text x="459" y="149" font-size="13" font-weight="650" fill="#3d4a5c" text-anchor="middle">내부 서비스</text>
+    <text x="459" y="163" font-size="8.5" fill="#8593a6" text-anchor="middle" letter-spacing="0.5">내부 MCP 등</text>
+  </g>
+
+  <!-- door 1 : VPN pass -->
+  <circle cx="178" cy="150" r="17" fill="#ffffff" stroke="#1f8a4c" stroke-width="2.5"/>
+  <text x="178" y="155" font-size="13" font-weight="700" fill="#1f8a4c" text-anchor="middle">①</text>
+  <text x="178" y="192" font-size="10.5" font-weight="650" fill="#1f8a4c" text-anchor="middle">VPN 입장 ✓</text>
+
+  <!-- door 2 : edge firewall policy block -->
+  <circle cx="357" cy="150" r="17" fill="#ffffff" stroke="#cf3f27" stroke-width="2.5"/>
+  <text x="357" y="155" font-size="13" font-weight="700" fill="#cf3f27" text-anchor="middle">②</text>
+  <text x="357" y="192" font-size="10.5" font-weight="650" fill="#cf3f27" text-anchor="middle">edge 정책 ✗</text>
+
+  <!-- right note (before) -->
+  <text x="540" y="140" font-size="11.5" font-weight="650" fill="#cf3f27">② VPN 붙어도 내부 서비스는</text>
+  <text x="540" y="157" font-size="11.5" fill="#5a6b80">정책으로 따로 통제(최소권한).</text>
+  <text x="540" y="173" font-size="11.5" fill="#5a6b80">규칙 없어 여기서 막힘.</text>
+
+  <!-- divider -->
+  <line x1="34" y1="222" x2="726" y2="222" stroke="#e1e8ef" stroke-width="1"/>
+
+  <!-- ===================== AFTER ===================== -->
+  <rect x="34" y="238" width="210" height="20" rx="10" fill="#e6f3ea"/>
+  <text x="44" y="252" font-size="11" font-weight="700" fill="#1f8a4c" letter-spacing="0.5">AFTER · edge에서 정책 허용</text>
+
+  <line x1="152" y1="300" x2="205" y2="300" stroke="#1f8a4c" stroke-width="2.5"/>
+  <line x1="315" y1="300" x2="400" y2="300" stroke="#1f8a4c" stroke-width="2.5"/>
+
+  <g>
+    <rect x="34" y="278" width="118" height="44" rx="9" fill="#ffffff" stroke="#c8d3de"/>
+    <text x="93" y="300" font-size="13.5" font-weight="650" fill="#17212f" text-anchor="middle">내 맥</text>
+    <text x="93" y="314" font-size="9" fill="#8593a6" text-anchor="middle" letter-spacing="1">CLIENT</text>
+  </g>
+  <g>
+    <rect x="205" y="278" width="110" height="44" rx="9" fill="#ffffff" stroke="#c8d3de"/>
+    <text x="260" y="299" font-size="13" font-weight="650" fill="#17212f" text-anchor="middle">사내망</text>
+    <text x="260" y="313" font-size="8.5" fill="#8593a6" text-anchor="middle" letter-spacing="0.5">VPN ZONE</text>
+  </g>
+  <g>
+    <rect x="400" y="278" width="118" height="44" rx="9" fill="#e6f3ea" stroke="#a9d4ba"/>
+    <text x="459" y="299" font-size="13" font-weight="650" fill="#17212f" text-anchor="middle">내부 서비스</text>
+    <text x="459" y="313" font-size="8.5" fill="#7fa88f" text-anchor="middle" letter-spacing="0.5">REACHED</text>
+  </g>
+
+  <circle cx="178" cy="300" r="17" fill="#ffffff" stroke="#1f8a4c" stroke-width="2.5"/>
+  <text x="178" y="305" font-size="13" font-weight="700" fill="#1f8a4c" text-anchor="middle">①</text>
+  <text x="178" y="342" font-size="10.5" font-weight="650" fill="#1f8a4c" text-anchor="middle">VPN 입장 ✓</text>
+
+  <circle cx="357" cy="300" r="17" fill="#ffffff" stroke="#1f8a4c" stroke-width="2.5"/>
+  <text x="357" y="305" font-size="13" font-weight="700" fill="#1f8a4c" text-anchor="middle">②</text>
+  <text x="357" y="342" font-size="10.5" font-weight="650" fill="#1f8a4c" text-anchor="middle">허용됨 ✓</text>
+
+  <text x="540" y="290" font-size="11.5" font-weight="650" fill="#1f8a4c">edge(FortiGate)에 정책 추가</text>
+  <text x="540" y="307" font-size="11.5" fill="#5a6b80">VPN영역 → 서비스 허용</text>
+  <text x="540" y="323" font-size="11.5" fill="#5a6b80">→ 내부 서비스 도달</text>
+
+  <!-- bottom insight -->
+  <rect x="34" y="364" width="692" height="1.2" fill="#e1e8ef"/>
+  <text x="34" y="388" font-size="12.5" fill="#3d4a5c"><tspan font-weight="700" fill="#0e7c86">핵심 ·</tspan> VPN = 사내망 '입장', edge 정책 = 특정 내부 서비스 '출입증'. 입장했다고 모든 방에 들어가는 건 아니다.</text>
+</svg>
