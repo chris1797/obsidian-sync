@@ -43,7 +43,7 @@ The authenticity of host '...' can't be established. ... (yes/no)?
 ```
 Host myserver
     HostName 203.0.113.10
-    User ijaehun
+    User user
     IdentityFile ~/.ssh/id_ed25519
     Port 22
 ```
