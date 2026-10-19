@@ -133,5 +133,6 @@ up: "[[MCP MOC]]"
 - [[툴 정의가 LLM에 도달하는 경로]]
 - [[MCP 서버 조합 (프록시·집계)]]
 - [[resources·prompts]]
+- [[Streamable HTTP 응답 형식과 연결 재사용]] — event-stream 응답이 연결 재사용을 막는 이유, 세션당 왕복 수
 
 #sprout
