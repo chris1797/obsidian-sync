@@ -1,3 +1,6 @@
+---
+up: "[[N+1 문제]]"
+---
 ### "컬렉션을 하나 이상 즉시 로딩하는 것은 권장하지 않는다"
 
 컬렉션을 `@OneToMany`, `@ManyToMany` 등의 관계로 선언하면서 `fetch = FetchType.EAGER`로 설정하지 말라는 뜻이다.
@@ -24,3 +27,7 @@ SELECT p FROM Post p JOIN FETCH p.comments
 - Hibernate에서는 **하나의 컬렉션만 Fetch Join 가능**하고, **여러 컬렉션을 EAGER로 설정하면 기본적으로 `Cartesian product`(곱집합)** 문제가 생김.
 
 ### ✅ 결론: 컬렉션은 Lazy 로딩을 기본으로 쓰자.
+
+> 왜 여기 붙나: EAGER 컬렉션은 N+1 과 페이징 붕괴를 부르니 Lazy 가 기본
+
+#sprout

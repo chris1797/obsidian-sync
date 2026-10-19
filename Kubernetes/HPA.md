@@ -1,3 +1,6 @@
+---
+up: "[[Deployment]]"
+---
 # HPA
 
 Horizontal Pod Autoscaler. [[Deployment]] 의 `replicas` 를 사람 대신 조절하는 또 하나의 [[컨트롤 루프]]다. 관찰 → 차이 → 행동이 여기선 **"사용률 관찰 → 목표와 비교 → 파드 수 조정"** 이 된다.
@@ -51,3 +54,7 @@ desired = ceil( 현재 파드 수 × 현재 사용률 / 목표 사용률 )
 파드 하나 = requests 만큼의 장부 자리. max 를 7→10 으로 올리는 건 **노드에 requests × 3 (+ 배포 surge 분)의 자리가 있다는 가정**이다. 자리가 없으면 HPA 가 늘려도 새 파드는 Pending 이다. HPA 는 파드 수를 정할 뿐, 자리를 만들어주진 않는다.
 
 > 상태: #wip — 다음 가지: 메모리·커스텀 메트릭 기반 스케일링, 준비 안 된 파드를 계산에서 어떻게 빼는지(CPU 초기화 기간), Cluster Autoscaler(자리를 만드는 쪽)와의 분담.
+
+> 왜 여기 붙나: Deployment 의 replicas 를 사람 대신 조절하는 또 하나의 컨트롤 루프
+
+#sprout

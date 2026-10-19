@@ -1,3 +1,6 @@
+---
+up: "[[이벤트 루프와 코루틴]]"
+---
 > "FastAPI 는 싱글 스레드인가?" 한마디로 답하기 어려운 이유 — 세 층으로 나눠야 한다.
 
 ### 1. 이벤트 루프는 싱글 스레드다
@@ -56,3 +59,12 @@ def b():         # 스레드풀로 위임 (멀티스레드 경로)
 - 스레드풀 크기 조정 (`anyio.to_thread.current_default_thread_limiter()`) 은 언제 건드릴 가치가 있나?
 - async 컨텍스트에서 SQLAlchemy 를 쓸 때 세션 스코프 / 트랜잭션 경계는 JPA 의 영속성 컨텍스트와 어떻게 다른가? → [[AsyncSession]] 으로 따로 정리.
 - uvicorn workers 와 gunicorn + uvicorn worker 의 실질적 차이 (헬스체크, 그레이스풀 리스타트 등)
+
+> 왜 여기 붙나: 워커 하나에 asyncio 이벤트 루프 1개, 그 위에서 코루틴이 돈다
+
+## 가지
+- [[AsyncSession]]
+- [[FastAPI 요청당 CPU 줄이기]]
+- [[run_in_threadpool]]
+
+#sprout

@@ -1,3 +1,6 @@
+---
+up: "[[개발 세컨드 브레인]]"
+---
 # 동시성 MOC
 
 이 영역의 입구. 핵심 축은 **"GIL이 막은 길과, 그 우회로"** — 파이썬은 스레드로 CPU 병렬을 못 얻으니(=GIL), 한 스레드 안의 *협력적 동시성*으로 I/O 동시성을 얻는 쪽으로 갔다. 이 한 문장이 아래 네 노트를 관통한다.
@@ -13,3 +16,8 @@
 ## 다음 가지 후보
 
 `run_in_executor` / `run_in_threadpool`(동기 코드를 async로 끌어들이는 다리), [[asyncio.gather]] / TaskGroup(Task 예외가 silent해지는 함정), async generator(`async for`, 스트리밍), `multiprocessing` IPC 비용, Python 3.13 free-threaded 빌드가 refcount를 어떻게 푸는가.
+
+## 가지
+- [[GIL]]
+
+#sprout

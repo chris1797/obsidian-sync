@@ -1,3 +1,6 @@
+---
+up: "[[Pod]]"
+---
 # 리소스 requests와 limits
 
 [[Pod]] 스펙의 `resources` 에는 숫자가 두 개 들어간다. 처음엔 "최소·최대" 정도로 읽었는데, 둘은 **보는 주체도, 커널에서 바뀌는 모양도 다르다.** 한 문장으로: **requests 는 바닥(최소 보장), limits 는 천장(상한)** 이고, 파드는 그 사이에서 노드 여유만큼 쓴다.
@@ -57,3 +60,11 @@ requests 를 올리면 장부상 자리를 더 차지한다. 배포 중 surge �
 [[HPA]] 는 이 requests 를 사용률의 **분모**로 쓴다 — requests 를 바꾸면 같은 부하라도 사용률 숫자가 바뀐다.
 
 > 상태: #wip — 다음 가지: LimitRange·ResourceQuota(네임스페이스가 이 값들을 강제·기본값 주입하는 방식), Pod 레벨 리소스(1.34+).
+
+> 왜 여기 붙나: Pod 스펙 resources 의 두 숫자 — requests 는 바닥, limits 는 천장
+
+## 가지
+- [[CPU throttling]]
+- [[LimitRange·ResourceQuota]]
+
+#sprout

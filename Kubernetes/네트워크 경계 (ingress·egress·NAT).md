@@ -1,3 +1,6 @@
+---
+up: "[[Service]]"
+---
 # 네트워크 경계 (ingress·egress·NAT)
 
 클러스터를 **건물**로 보면, 이 노트가 다루는 건 딱 하나다 — **패킷이 건물 문을 넘을 때 주소가 어떻게 바뀌는가.** inbound·egress·proxy·NAT 는 따로 노는 용어가 아니라, 이 "경계 통과" 한 흐름을 방향별로 부르는 이름일 뿐이다. 그래서 핵심 축은 **방향(direction)** 이다.
@@ -54,3 +57,10 @@
 방향이 곧 이름을 정한다 — 들어오면 ingress(안내데스크가 reverse proxy), 나가면 egress(대표 명함이 SNAT). 둘 다 공통 동기는 하나다: **소모품인 [[Pod]] 를 안정된 무언가(고정 이름 / 고정 IP) 뒤에 숨긴다.** [[Service]]가 안쪽에서 한 일을, 경계에서 다시 한 번 하는 셈.
 
 > 상태: #wip — 방향 축을 세운 단계. 다음 가지: Ingress 컨트롤러의 실제 동작, NetworkPolicy(클러스터 안에서의 ingress/egress 규칙), egress IP 고정 방식(egress gateway vs 노드 NAT).
+
+> 왜 여기 붙나: Service 가 안쪽에서 한 일을 클러스터 경계에서 다시 한 번 한다
+
+## 가지
+- [[Ingress 리소스]]
+
+#sprout

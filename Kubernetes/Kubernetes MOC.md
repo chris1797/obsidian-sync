@@ -1,3 +1,6 @@
+---
+up: "[[개발 세컨드 브레인]]"
+---
 # Kubernetes MOC
 
 이 영역의 입구. 핵심 축은 **"선언하면 루프가 맞춘다"** — 원하는 상태를 적어두면 k8s 가 현재 상태를 거기에 끊임없이 수렴시킨다. 아래 노트 대부분이 이 한 문장의 각론이다.
@@ -33,3 +36,10 @@
 ## 다음 가지 후보
 
 ConfigMap·Secret(설정 주입), 프로브(liveness·readiness — 컨트롤 루프가 "실제 상태" 를 무엇으로 판정하는지), LimitRange·ResourceQuota, StatefulSet(상태 있는 워크로드), RBAC, Ingress 리소스, Helm.
+
+## 가지
+- [[Kubernetes]]
+- [[ConfigMap·Secret]]
+- [[Helm]]
+
+#sprout

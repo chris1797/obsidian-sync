@@ -1,3 +1,6 @@
+---
+up: "[[리소스 requests와 limits]]"
+---
 # CPU throttling
 
 CPU limits 를 넘으면 파드가 죽는 줄 알았다. 아니다 — **느려진다.** [[리소스 requests와 limits]]의 limits 가 커널에서 어떤 모양이 되는지 보면 왜 그런지 보인다.
@@ -54,3 +57,7 @@ rate(container_cpu_cfs_throttled_periods_total[5m])
 **메모리 limits 는 예외 없이 유지** — 메모리는 멈춰서 조절할 수 없어서 OOM 으로 끝난다.
 
 > 상태: #wip — 의문: 커널 버전별 CFS 과다 throttling 버그는 지금 어디까지 해소됐나? cgroup v2 의 `cpu.max.burst` 는 쓸 만한가?
+
+> 왜 여기 붙나: limits 가 커널에서 CFS 쿼터가 되어, 넘으면 죽지 않고 느려진다
+
+#sprout

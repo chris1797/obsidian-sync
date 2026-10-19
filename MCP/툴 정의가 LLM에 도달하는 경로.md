@@ -1,3 +1,6 @@
+---
+up: "[[MCP]]"
+---
 # 툴 정의가 LLM에 도달하는 경로
 
 [[MCP]]에서 `tools/list`가 "툴 목록 + 입력 스키마"를 반환한다고만 알고 넘어갔는데, 실제로 서버를 만들다 보니 **그 응답에 뭐가 실리는지가 곧 LLM이 아는 전부**였다. 셋뿐이다.
@@ -69,3 +72,12 @@ async def list_campaigns(status: Optional[Status] = None, limit: Limit = None):
 - 그 경우 배경지식도 결국 툴 하나로 감싸는 게 유일한 길인가
 
 > 상태: #wip — 전달 경로와 스키마 이관까지. 다음 가지: `resources`·`prompts`의 주도권 차이.
+
+> 왜 여기 붙나: tools/list 응답에 실리는 name·description·inputSchema 가 LLM 이 아는 전부
+
+## 가지
+- [[툴 정의 필드의 소비자]]
+- [[툴 정의 payload의 비용 분포]]
+- [[FastMCP 대규모 도구의 토큰 절약]]
+
+#sprout

@@ -1,3 +1,6 @@
+---
+up: "[[데이터 딕셔너리]]"
+---
 # 온라인 DDL (Online DDL)
 
 **테이블을 읽고 쓰는 서비스를 멈추지 않고 스키마를 바꾸는 기법.** 옛날 MySQL은 `ALTER TABLE` 한 번에 테이블 전체를 락 걸고 통째로 복사해서, 큰 테이블은 DDL 한 줄이 서비스 장애가 됐다. "온라인"의 목표는 **그 DDL이 도는 동안에도 다른 세션이 INSERT/UPDATE/DELETE를 계속할 수 있게** 하는 것.
@@ -42,3 +45,10 @@ ALTER TABLE orders ADD INDEX idx_status (status), ALGORITHM=INPLACE, LOCK=NONE;
 ---
 
 이 모든 게 가능한 밑바탕엔 [[데이터 딕셔너리]]가 있다 — 스키마의 단일 출처가 트랜잭션 안전하게 관리되기에, DDL 중간에 죽어도 스키마가 반쪽 상태로 깨지지 않는다.
+
+> 왜 여기 붙나: 딕셔너리가 트랜잭션 안전해 DDL 중 스키마가 반쪽으로 안 깨진다
+
+## 가지
+- [[INSTANT DDL]]
+
+#sprout

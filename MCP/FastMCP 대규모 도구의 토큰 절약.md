@@ -1,3 +1,6 @@
+---
+up: "[[툴 정의가 LLM에 도달하는 경로]]"
+---
 # FastMCP 대규모 도구의 토큰 절약
 
 핵심은 에이전트가 **적게 읽고, 적게 호출하고, 작은 결과만 받게 하는 것**이다.
@@ -175,3 +178,7 @@ FastMCP는 Python 함수의 반환 타입을 이용해 구조화된 결과를 �
 - [MCP Tools 명세](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) — `tools/list`, `tools/call`, 구조화 결과
 
 > 상태: #wip — 대규모 도구의 토큰 절약 전략과 FastMCP 적용 방법까지.
+
+> 왜 여기 붙나: 도구 이름·설명·입력 형식을 LLM 에 알려주는 데도 토큰이 든다
+
+#sprout

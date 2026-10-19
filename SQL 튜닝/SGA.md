@@ -1,3 +1,6 @@
+---
+up: "[[SQL 튜닝 MOC]]"
+---
 # SGA (System Global Area)
 
 오라클 인스턴스 전체가 **공유**하는 메모리 영역. 인스턴스 기동 시 한 번 잡히고, 모든 서버 프로세스·세션이 같이 들여다본다.
@@ -45,3 +48,11 @@ DB가 디스크 I/O를 줄이는 핵심 장치가 SGA다. 한 번 읽은 블록�
 - [[소트 머지 조인]] — 정렬은 PGA에서 일어나지만, 정렬 대상 블록을 읽어오는 단계는 SGA Buffer Cache를 거침.
 - [[해시 조인]] — 마찬가지로 Build/Probe 입력은 Buffer Cache에서.
 - 라이브러리 캐시 ↔ 바인드 변수·hard parse — 캐시 효율의 핵심.
+
+> 왜 여기 붙나: 인스턴스 공유 메모리라 latch·mutex 동시성 제어가 필수다
+
+## 가지
+- [[NL 조인]]
+- [[Buffer Cache Hit Ratio]]
+
+#sprout

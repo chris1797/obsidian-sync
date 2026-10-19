@@ -1,3 +1,6 @@
+---
+up: "[[동시성 MOC]]"
+---
 > Global Interpreter Lock — 한 프로세스 안에서 한 시점에 단 하나의 스레드만 Python 바이트코드를 실행하게 만드는 락.
 
 CPython 구현체에 한정된 이야기 (PyPy 도 있음, Jython·IronPython 은 없음). Python 3.13 에서 free-threaded 빌드가 실험적으로 도입됨.
@@ -35,3 +38,12 @@ Spring Boot 가 한 프로세스로 코어를 전부 쓸 수 있는 건 JVM 에 
 - Python 3.13 의 free-threaded 빌드는 실제로 어떻게 레퍼런스 카운팅 문제를 푸는가? (per-object lock? biased ref counting?)
 - `multiprocessing` 으로 우회할 때 IPC 비용은 어떻게 잡나 (shared memory, queue)
 - async + 멀티프로세싱 (워커 N 개 × 각자의 이벤트 루프) 의 표준 구성
+
+> 왜 여기 붙나: 한 프로세스에서 한 시점에 한 스레드만 바이트코드를 실행한다
+
+## 가지
+- [[이벤트 루프와 코루틴]]
+- [[multiprocessing IPC 비용]]
+- [[free-threaded 빌드]]
+
+#sprout

@@ -1,3 +1,6 @@
+---
+up: "[[Kubernetes]]"
+---
 # Pod
 
 [[Kubernetes]] 배포의 **최소 단위**. 여기서 첫 번째로 걸리는 게 이거다 — 우리는 "컨테이너를 배포한다"고 생각하는데, k8s는 컨테이너를 직접 다루지 않는다. 항상 **Pod라는 껍데기로 한 번 감싸서** 다룬다. `docker run`으로 컨테이너 하나 띄우던 감각에서 보면 왜 굳이 한 겹을 더 씌우나 싶다. 그 이유를 이해하는 게 곧 Pod를 이해하는 것이다.
@@ -49,3 +52,14 @@ Deployment  →  ReplicaSet  →  Pod  →  컨테이너(+공유 네트워크/�
 위로 갈수록 "얼마나 오래 살아야 하나"의 책임을 지고, 아래로 갈수록 "실제로 뭘 실행하나"에 가깝다. Pod는 그 경계에 있다 — **선언의 세계(YAML로 원하는 상태)와 실행의 세계(노드 위 실제 컨테이너)가 만나는 최소 단위.** [[컨트롤 루프|Scheduler]]가 "이 Pod를 어느 노드에" 배정하고, 그 노드의 kubelet이 Pod 안 컨테이너를 실제로 띄운다.
 
 > 상태: #wip — Pod의 정체성(공유·소모품성)까지. 다음 가지: Pod의 lifecycle phase(Pending/Running/Succeeded/Failed), readiness/liveness probe(컨트롤 루프가 "살아있음"을 어떻게 판정하는가), init container.
+
+> 왜 여기 붙나: k8s 는 컨테이너를 직접 다루지 않고 Pod 라는 껍데기로 감싼다
+
+## 가지
+- [[Deployment]]
+- [[Service]]
+- [[리소스 requests와 limits]]
+- [[프로브]]
+- [[StatefulSet]]
+
+#sprout

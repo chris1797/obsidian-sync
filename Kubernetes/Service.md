@@ -1,3 +1,6 @@
+---
+up: "[[Pod]]"
+---
 # Service
 
 [[Pod]]는 죽고 살며 IP가 계속 바뀐다 — 소모품성의 대가다. 그 흔들리는 Pod들 앞에 **고정된 진입점** 하나를 세워, 다른 데서 안정적으로 찾고(discovery) 부하를 나누는(load balancing) 층이 Service. 한 문장: **"바뀌는 Pod IP를 고정된 이름·주소 뒤에 숨긴다."**
@@ -24,3 +27,10 @@
 Service의 고정 IP는 *추상*일 뿐, 실제 패킷은 아무도 안 듣는 가상 IP로 간다. "그 IP로 온 트래픽을 살아있는 Pod 중 하나로" 실제로 넘기는 건 각 노드의 **kube-proxy**가 iptables/IPVS 규칙으로 한다. [[Kubernetes]] 지도에서 kube-proxy를 "노드 네트워크 규칙 관리"라 했던 게 바로 이 일이다.
 
 > 상태: #wip — 발견·로드밸런싱의 큰 그림. 다음 가지: [[네트워크 경계 (ingress·egress·NAT)|Ingress]](L7 라우팅, 여러 Service를 도메인·경로로 묶기), headless Service, 클러스터 내부 DNS.
+
+> 왜 여기 붙나: Pod IP 가 계속 바뀌니 고정된 이름·주소 뒤에 숨긴다
+
+## 가지
+- [[네트워크 경계 (ingress·egress·NAT)]]
+
+#sprout
