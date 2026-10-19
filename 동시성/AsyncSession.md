@@ -61,6 +61,6 @@ async def read_user(
 
 ### 의문점 / 더 파볼 것
 
-- `expire_on_commit` 의 기본값이 `True` 라서 커밋 직후 객체 접근 시 또 lazy load 가 일어나 async 에서 폭발. async 에서는 거의 디폴트로 `False` 같은데, 왜 기본이 `True` 일까?
+- `expire_on_commit` 의 기본값이 `True` 라서 커밋 직후 객체 접근 시 또 lazy load 가 일어나 async 에서 폭발. async 에서는 거의 디폴트로 `False` 같은데, 왜 기본이 `True` 일까? → 기본값이 "하지 않음" 이 아니라 "능동적으로 무언가를 함" 인 부류다. 같은 패턴을 [[능동적인 기본값]] 에 모아뒀다.
 - `selectinload` vs `joinedload` 선택 기준 (one-to-many → selectin, to-one → joined 가 통설)
 - SQLAlchemy 의 이벤트 훅 (`before_flush` 등) 은 async 컨텍스트에서 어떻게 불리나? sync 콜백을 async 에서 부르면 또 블로킹 문제?

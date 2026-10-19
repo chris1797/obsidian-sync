@@ -41,6 +41,8 @@ def b():         # 스레드풀로 위임 (멀티스레드 경로)
 - DB → `asyncpg` / `aiomysql`, 또는 SQLAlchemy 의 [[AsyncSession]] (대신 동기 `Session`)
 - 그것도 안 되면 차라리 엔드포인트를 `def` 로 둬서 스레드풀에 맡기기
 
+이 지뢰가 운영에서 CPU·꼬리 지연으로 어떻게 청구되는지, 그리고 연결 재사용·캐시 같은 다른 레버는 [[FastAPI 요청당 CPU 줄이기]] 에 이어 적었다.
+
 ### 한눈에
 
 | | Spring Boot (Tomcat) | FastAPI |
